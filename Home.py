@@ -266,10 +266,8 @@ with st.sidebar:
 # ════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
-/* ── Global Font Enlargement ── */
-html, body, [class*="css"] {
-    font-size: 17px !important;
-}
+/* ── Content Font Enlargement Only ──
+   Do not enlarge html/body globally. That makes Streamlit tabs wrap badly. */
 div[data-testid="stMarkdownContainer"] p,
 div[data-testid="stMarkdownContainer"] li,
 div[data-testid="stMarkdownContainer"] ol {
@@ -278,13 +276,35 @@ div[data-testid="stMarkdownContainer"] ol {
 }
 label, .stSelectbox label, .stNumberInput label,
 .stTextInput label, .stRadio label, .stCheckbox label {
-    font-size: 17px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
 }
 .stSelectbox div[data-baseweb="select"] span,
 input[type="number"] {
-    font-size: 17px !important;
+    font-size: 16px !important;
 }
+
+/* ── Fix long Streamlit tab labels ── */
+.stTabs [data-baseweb="tab-list"] {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 0.25rem !important;
+}
+.stTabs [data-baseweb="tab"] {
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 6px 8px !important;
+}
+.stTabs [data-baseweb="tab"] p {
+    white-space: nowrap !important;
+    font-size: 13px !important;
+}
+.stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
+    height: 4px;
+}
+
 pre  { white-space: pre-wrap !important; font-size: 15px !important; }
 code { white-space: pre-wrap !important; font-size: 15px !important; }
 .stDataFrame td { white-space: normal !important; font-size: 15px !important; }
