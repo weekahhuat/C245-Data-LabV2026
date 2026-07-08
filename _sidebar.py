@@ -23,6 +23,8 @@ def _sidebar(active_page=""):
         st.markdown("""
         <style>
         [data-testid="stSidebarNav"] {display: none !important;}
+        section[data-testid="stSidebar"] {width:220px !important; min-width:220px !important;}
+        section[data-testid="stSidebar"] > div:first-child {width:220px !important; min-width:220px !important;}
         section[data-testid="stSidebar"] > div:first-child {padding-top: 0 !important;}
         </style>
         """, unsafe_allow_html=True)
@@ -40,7 +42,7 @@ def _sidebar(active_page=""):
         # ── app title ─────────────────────────────────────────────
         st.markdown(
             '<div style="padding:0 16px;">'
-            '<div style="font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:2px;">C245 Data Analytics</div>'
+            '<div style="font-size:12px;font-weight:600;color:#1a1a2e;margin-bottom:2px;">C245 Data Analytics</div>'
             '<div style="font-size:14px;color:#888;margin-bottom:16px;">with Generative AI</div>'
             '<div style="font-size:13px;color:#aaa;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Navigation</div>'
             '</div>',
@@ -55,7 +57,7 @@ def _sidebar(active_page=""):
             border: none !important;
             text-align: left !important;
             padding: 7px 14px !important;
-            font-size: 15px !important;
+            font-size: 12px !important;
             color: #333 !important;
             border-radius: 6px !important;
             width: 100% !important;
@@ -67,7 +69,7 @@ def _sidebar(active_page=""):
             color: #1967d2 !important;
         }
         div[data-testid="stSidebar"] div[data-testid="stButton"] button p {
-            font-size: 15px !important;
+            font-size: 12px !important;
             text-align: left !important;
         }
         </style>

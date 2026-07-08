@@ -45,13 +45,13 @@ with st.sidebar:
     st.markdown(
         f'''<div style="padding:20px 16px 4px 16px; text-align:center;">
         <img src="data:image/png;base64,{LOGO_B64}"
-             style="width:100%;max-width:190px;display:block;margin:0 auto 14px auto;">
+             style="width:100%;max-width:145px;display:block;margin:0 auto 14px auto;">
         </div>''',
         unsafe_allow_html=True
     )
     st.markdown(
         '''<div style="padding:0 16px 12px 16px;">
-        <div style="font-size:14px;font-weight:600;color:#1a1a2e;line-height:1.3;">
+        <div style="font-size:12px;font-weight:600;color:#1a1a2e;line-height:1.25;">
             C245 Data Analytics<br>with GenAI (V1.13)</div>
         <div style="font-size:11px;color:#888;margin-top:4px;">Written by K.H Wee</div>
         </div>''',
@@ -79,7 +79,7 @@ with st.sidebar:
         border: 1px solid #dee2e6 !important;
         text-align: left !important;
         padding: 10px 16px !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-weight: 500 !important;
         color: #333 !important;
         border-radius: 8px !important;
@@ -95,7 +95,7 @@ with st.sidebar:
         color: #1967d2 !important;
     }
     div[data-testid="stSidebar"] div[data-testid="stButton"] button p {
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-weight: 500 !important;
         text-align: left !important;
     }
@@ -254,7 +254,7 @@ with st.sidebar:
 - Initial Version
 """)
         st.markdown(
-            f'''<div style="position:fixed;bottom:12px;left:0;width:248px;padding:10px 16px 0;
+            f'''<div style="position:fixed;bottom:12px;left:0;width:220px;padding:10px 16px 0;
             border-top:1px solid #dee2e6;font-size:11px;color:#aaa;line-height:1.6;">
             K.H Wee · Republic Polytechnic<br>© {current_year}
             </div>''',
@@ -266,53 +266,76 @@ with st.sidebar:
 # ════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
-/* ── Content Font Enlargement Only ──
-   Do not enlarge html/body globally. That makes Streamlit tabs wrap badly. */
-div[data-testid="stMarkdownContainer"] p,
-div[data-testid="stMarkdownContainer"] li,
-div[data-testid="stMarkdownContainer"] ol {
-    font-size: 17px !important;
-    white-space: normal;
+/* Compact Streamlit Cloud layout */
+section[data-testid="stSidebar"] {
+    width: 220px !important;
+    min-width: 220px !important;
 }
-label, .stSelectbox label, .stNumberInput label,
-.stTextInput label, .stRadio label, .stCheckbox label {
-    font-size: 16px !important;
-    font-weight: 600 !important;
+section[data-testid="stSidebar"] > div:first-child {
+    width: 220px !important;
+    min-width: 220px !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
 }
-.stSelectbox div[data-baseweb="select"] span,
-input[type="number"] {
-    font-size: 16px !important;
+[data-testid="stSidebarNav"] {display:none !important;}
+section[data-testid="stSidebar"] {background:#f8f9fa;}
+section[data-testid="stSidebar"] hr {margin: 8px 0 !important;}
+
+/* Main content gets more usable width */
+.block-container {
+    max-width: 100% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 1.2rem !important;
 }
 
-/* ── Fix long Streamlit tab labels ── */
+/* Keep tab labels compact and on one line */
 .stTabs [data-baseweb="tab-list"] {
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
-    gap: 0.25rem !important;
+    gap: 2px !important;
 }
 .stTabs [data-baseweb="tab"] {
     white-space: nowrap !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: 500 !important;
-    padding: 6px 8px !important;
+    padding: 4px 5px !important;
+    min-width: auto !important;
 }
 .stTabs [data-baseweb="tab"] p {
     white-space: nowrap !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
 }
 .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
-    height: 4px;
+    height: 3px;
 }
 
-pre  { white-space: pre-wrap !important; font-size: 15px !important; }
-code { white-space: pre-wrap !important; font-size: 15px !important; }
-.stDataFrame td { white-space: normal !important; font-size: 15px !important; }
-.stDataFrame th { font-size: 15px !important; font-weight: 700 !important; }
-h1 { font-size: 2.2rem !important; }
-h2 { font-size: 1.9rem !important; }
-h3 { font-size: 1.6rem !important; }
-h4 { font-size: 1.35rem !important; }
+/* Reduce general content font size without breaking widgets */
+div[data-testid="stMarkdownContainer"] p,
+div[data-testid="stMarkdownContainer"] li,
+div[data-testid="stMarkdownContainer"] ol {
+    font-size: 14px !important;
+    white-space: normal;
+}
+label, .stSelectbox label, .stNumberInput label,
+.stTextInput label, .stRadio label, .stCheckbox label {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+.stSelectbox div[data-baseweb="select"] span,
+input[type="number"], input[type="text"], textarea {
+    font-size: 14px !important;
+}
+pre  { white-space: pre-wrap !important; font-size: 12px !important; }
+code { white-space: pre-wrap !important; font-size: 12px !important; }
+.stDataFrame td { white-space: normal !important; font-size: 12px !important; }
+.stDataFrame th { font-size: 12px !important; font-weight: 700 !important; }
+h1 { font-size: 1.9rem !important; }
+h2 { font-size: 1.6rem !important; }
+h3 { font-size: 1.35rem !important; }
+h4 { font-size: 1.15rem !important; }
 </style>
 """, unsafe_allow_html=True)
 

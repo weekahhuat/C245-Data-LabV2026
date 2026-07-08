@@ -30,33 +30,76 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 st.markdown("""
 <style>
-/* ── Global Font Enlargement ── */
-html, body, [class*="css"] {
-    font-size: 17px !important;
+/* Compact Streamlit Cloud layout */
+section[data-testid="stSidebar"] {
+    width: 220px !important;
+    min-width: 220px !important;
 }
+section[data-testid="stSidebar"] > div:first-child {
+    width: 220px !important;
+    min-width: 220px !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+}
+[data-testid="stSidebarNav"] {display:none !important;}
+section[data-testid="stSidebar"] {background:#f8f9fa;}
+section[data-testid="stSidebar"] hr {margin: 8px 0 !important;}
+
+/* Main content gets more usable width */
+.block-container {
+    max-width: 100% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 1.2rem !important;
+}
+
+/* Keep tab labels compact and on one line */
+.stTabs [data-baseweb="tab-list"] {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 2px !important;
+}
+.stTabs [data-baseweb="tab"] {
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 4px 5px !important;
+    min-width: auto !important;
+}
+.stTabs [data-baseweb="tab"] p {
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+}
+.stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
+    height: 3px;
+}
+
+/* Reduce general content font size without breaking widgets */
 div[data-testid="stMarkdownContainer"] p,
 div[data-testid="stMarkdownContainer"] li,
 div[data-testid="stMarkdownContainer"] ol {
-    font-size: 17px !important;
+    font-size: 14px !important;
     white-space: normal;
 }
 label, .stSelectbox label, .stNumberInput label,
 .stTextInput label, .stRadio label, .stCheckbox label {
-    font-size: 17px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
 }
 .stSelectbox div[data-baseweb="select"] span,
-input[type="number"] {
-    font-size: 17px !important;
+input[type="number"], input[type="text"], textarea {
+    font-size: 14px !important;
 }
-pre  { white-space: pre-wrap !important; font-size: 15px !important; }
-code { white-space: pre-wrap !important; font-size: 15px !important; }
-.stDataFrame td { white-space: normal !important; font-size: 15px !important; }
-.stDataFrame th { font-size: 15px !important; font-weight: 700 !important; }
-h1 { font-size: 2.2rem !important; }
-h2 { font-size: 1.9rem !important; }
-h3 { font-size: 1.6rem !important; }
-h4 { font-size: 1.35rem !important; }
+pre  { white-space: pre-wrap !important; font-size: 13px !important; }
+code { white-space: pre-wrap !important; font-size: 13px !important; }
+.stDataFrame td { white-space: normal !important; font-size: 13px !important; }
+.stDataFrame th { font-size: 13px !important; font-weight: 700 !important; }
+h1 { font-size: 1.9rem !important; }
+h2 { font-size: 1.6rem !important; }
+h3 { font-size: 1.35rem !important; }
+h4 { font-size: 1.15rem !important; }
 </style>
 """, unsafe_allow_html=True)
 
